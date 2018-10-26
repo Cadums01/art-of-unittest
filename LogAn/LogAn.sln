@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogAn", "LogAn\LogAn.csproj", "{E4DE4B23-931F-4A7E-B750-D1C5653F4023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogAn.UnitTests", "LogAn.UnitTests\LogAn.UnitTests.csproj", "{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4DE4B23-931F-4A7E-B750-D1C5653F4023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DE4B23-931F-4A7E-B750-D1C5653F4023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DE4B23-931F-4A7E-B750-D1C5653F4023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DE4B23-931F-4A7E-B750-D1C5653F4023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

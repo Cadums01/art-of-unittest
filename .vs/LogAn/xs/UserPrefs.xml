@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LogAn.UnitTests/LogAnalyzerTests.cs">
+    <Files>
+      <File FileName="LogAn.UnitTests/LogAnalyzerTests.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.LogAn.UnitTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
