@@ -7,3 +7,12 @@
 /Users/cadu/learn/UnitTest/LogAn/LogAn/obj/Debug/netcoreapp2.1/LogAn.AssemblyInfo.cs
 /Users/cadu/learn/UnitTest/LogAn/LogAn/obj/Debug/netcoreapp2.1/LogAn.dll
 /Users/cadu/learn/UnitTest/LogAn/LogAn/obj/Debug/netcoreapp2.1/LogAn.pdb
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/bin/Debug/netcoreapp2.1/LogAn.deps.json
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/bin/Debug/netcoreapp2.1/LogAn.dll
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/bin/Debug/netcoreapp2.1/LogAn.pdb
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.csprojAssemblyReference.cache
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.csproj.CoreCompileInputs.cache
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.AssemblyInfoInputs.cache
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.AssemblyInfo.cs
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.dll
+/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj/Debug/netcoreapp2.1/LogAn.pdb

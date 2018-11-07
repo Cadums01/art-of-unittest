@@ -4,20 +4,16 @@ namespace LogAn
 {
     public class LogAnalyzer
     {
-        public bool WasLastFileNameValid { get; set; }
+        private IExtensionManager _extensionManager;
+
+        public LogAnalyzer(IExtensionManager extensionManager)
+        {
+            _extensionManager = extensionManager;
+        }
 
         public bool IsValidLogFileName(string fileName)
         {
-            WasLastFileNameValid = false;
-
-            if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("file has to be provide");
-
-            if (!fileName.EndsWith(".SLF", StringComparison.OrdinalIgnoreCase))
-                return false;
-
-            WasLastFileNameValid = true;
-            return true;
+            return _extensionManager.IsValid(fileName);
         }
     }
 }

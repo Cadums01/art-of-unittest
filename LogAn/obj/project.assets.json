@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cadu/learn/UnitTest/LogAn/LogAn/LogAn.csproj",
+      "projectUniqueName": "/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/LogAn.csproj",
       "projectName": "LogAn",
-      "projectPath": "/Users/cadu/learn/UnitTest/LogAn/LogAn/LogAn.csproj",
+      "projectPath": "/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/LogAn.csproj",
       "packagesPath": "/Users/cadu/.nuget/packages/",
-      "outputPath": "/Users/cadu/learn/UnitTest/LogAn/LogAn/obj",
+      "outputPath": "/Users/cadu/learn/UnitTest/art-of-unittest/LogAn/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -703,6 +703,7 @@
         "netcoreapp2.1"
       ],
       "sources": {
+        "http://repo.dotznext.com:8081/repository/nuget/": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://www.nuget.org/api/v2/": {}
       },

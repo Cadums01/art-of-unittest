@@ -1,8 +1,25 @@
 ﻿<Properties StartupConfiguration="{2C3149FD-525B-40FA-BCBC-D4721E0F95B6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LogAn.UnitTests/LogAnalyzerTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LogAn/AlwaysValidFakeExtensionManager.cs">
     <Files>
-      <File FileName="LogAn.UnitTests/LogAnalyzerTests.cs" Line="1" Column="1" />
+      <File FileName="LogAn.UnitTests/LogAnalyzerTests.cs" Line="13" Column="14" />
+      <File FileName="LogAn/AlwaysValidFakeExtensionManager.cs" Line="11" Column="2" />
+      <File FileName="LogAn/FileExtensionManager.cs" Line="4" Column="41" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="LogAn" expanded="True" selected="True">
+            <Node name="LogAn.UnitTests" expanded="True">
+              <Node name="LogAn" expanded="True">
+                <Node name="UnitTests" expanded="True">
+                  <Node name="LogAnalyzerTests" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
