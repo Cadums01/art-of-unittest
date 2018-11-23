@@ -12,7 +12,7 @@ namespace LogAn
         }
 
         public bool IsValidLogFileName(string fileName)
-        {
+        {   
             return _extensionManager.IsValid(fileName);
         }
     }

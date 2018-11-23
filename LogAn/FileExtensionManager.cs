@@ -2,7 +2,7 @@
 namespace LogAn
 {
     public class FileExtensionManager:IExtensionManager
-    {
+     {
         public bool WasLastFileNameValid { get; set; }
 
         public bool IsValid(string fileName){

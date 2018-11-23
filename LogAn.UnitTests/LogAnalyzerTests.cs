@@ -23,7 +23,6 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidLogFileName_GoodExtensionLowerCase_ReturnTrue()
         {
-
             FakeExtensionManager myFakerManager = new FakeExtensionManager();
             myFakerManager.WillBeValid = true;
 
@@ -36,7 +35,6 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidLogFileName_BadExtension_ReturnFalse()
         {
-
             FakeExtensionManager myFakerManager = new FakeExtensionManager();
             myFakerManager.WillBeValid = false;
 
@@ -49,7 +47,6 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidFileName_EmptyFileName_ReturnException()
         {
-
             FakeExtensionManager myFakerManager = new FakeExtensionManager();
             myFakerManager.WillBeValid = false;
 
@@ -59,16 +56,17 @@ namespace LogAn.UnitTests
             Assert.That(ex.Message, Does.Contain("file has to be provide"));
         }
 
-        //[TestCase("filenamewitbadextension.foo", false)]
-        //[TestCase("filenamewithgoodextension.slf", true)]
-        //public void IsValidLogFileName_WhenCalled_ChangeWasLastFileNameValid(string fileName, bool expected)
-        //{
-        //    var log = MakerAnalyser();
+        [Test]
+        public void IsValidFileName_NameSupportedExtension_ReturnTrue(){
+            FakeExtensionManager myFakerManager = new FakeExtensionManager();
+            myFakerManager.WillBeValid = true;
 
-        //    log.IsValidLogFileName(fileName);
+            var log = MakerAnalyser(myFakerManager);
 
-        //    Assert.AreEqual(expected, log.WasLastFileNameValid);
-        //}
+            bool result = log.IsValidLogFileName("short.ext");
+            Assert.True(result);
+            
+        }   
 
         public LogAnalyzer MakerAnalyser(IExtensionManager extensionManager)
         {

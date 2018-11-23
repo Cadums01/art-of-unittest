@@ -1,4 +1,6 @@
-﻿namespace LogAn
+﻿using System;
+
+namespace LogAn
 {
     public class FakeExtensionManager : IExtensionManager
     {
@@ -6,7 +8,7 @@
 
         public bool IsValid(string fileName)
         {
-            return true;
+            return WillBeValid;
         }
     }
 }
