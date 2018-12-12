@@ -1,12 +1,13 @@
 ﻿using System;
+
 namespace LogAn
 {
-    public class FileExtensionManager:IExtensionManager
-     {
+    public class FileExtensionManager : IExtensionManager
+    {
         public bool WasLastFileNameValid { get; set; }
 
-        public bool IsValid(string fileName){
-
+        public bool IsValid(string fileName)
+        {
             WasLastFileNameValid = false;
 
             if (string.IsNullOrEmpty(fileName))

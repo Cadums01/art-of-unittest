@@ -6,15 +6,23 @@ namespace LogAn.UnitTests
     [TestFixture]
     public class LogAnalyzerTests
     {
+        private readonly FakeExtensionManager _fakeExtensionManager;
+        private readonly FakeWebService _mockWebService;
+        private FakeEmailService _emailService;
+
+        public LogAnalyzerTests()
+        {
+            _emailService = new FakeEmailService();
+            _fakeExtensionManager = new FakeExtensionManager();
+            _mockWebService = new FakeWebService();
+        }
 
         [Test]
         public void IsValidLogFileName_GoodExtensionUpperCase_ReturnTrue()
         {
-            FakeExtensionManager myFakerManager = new FakeExtensionManager();
-            myFakerManager.WillBeValid = true;
+            _fakeExtensionManager.WillBeValid = true;
 
-            var log = MakerAnalyser(myFakerManager);
-
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
             var result = log.IsValidLogFileName("filewithgoodextension.SLF");
 
             Assert.True(result);
@@ -23,10 +31,9 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidLogFileName_GoodExtensionLowerCase_ReturnTrue()
         {
-            FakeExtensionManager myFakerManager = new FakeExtensionManager();
-            myFakerManager.WillBeValid = true;
+            _fakeExtensionManager.WillBeValid = true;
 
-            var log = MakerAnalyser(myFakerManager);
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
             var result = log.IsValidLogFileName("filewithgoodextension.slf");
 
             Assert.True(result);
@@ -35,10 +42,9 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidLogFileName_BadExtension_ReturnFalse()
         {
-            FakeExtensionManager myFakerManager = new FakeExtensionManager();
-            myFakerManager.WillBeValid = false;
+            _fakeExtensionManager.WillBeValid = false;
 
-            var log = MakerAnalyser(myFakerManager);
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
             var result = log.IsValidLogFileName("filewithbadextension.foo");
 
             Assert.False(result);
@@ -47,30 +53,56 @@ namespace LogAn.UnitTests
         [Test]
         public void IsValidFileName_EmptyFileName_ReturnException()
         {
-            FakeExtensionManager myFakerManager = new FakeExtensionManager();
-            myFakerManager.WillBeValid = false;
+            _fakeExtensionManager.WillBeValid = false;
 
-            var log = MakerAnalyser(myFakerManager);
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
             var ex = Assert.Catch<Exception>(() => log.IsValidLogFileName(string.Empty));
 
             Assert.That(ex.Message, Does.Contain("file has to be provide"));
         }
 
         [Test]
-        public void IsValidFileName_NameSupportedExtension_ReturnTrue(){
-            FakeExtensionManager myFakerManager = new FakeExtensionManager();
-            myFakerManager.WillBeValid = true;
-
-            var log = MakerAnalyser(myFakerManager);
-
-            bool result = log.IsValidLogFileName("short.ext");
-            Assert.True(result);
-            
-        }   
-
-        public LogAnalyzer MakerAnalyser(IExtensionManager extensionManager)
+        public void IsValidFileName_NameSupportedExtension_ReturnTrue()
         {
-            return new LogAnalyzer(extensionManager);
+            _fakeExtensionManager.WillBeValid = true;
+
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
+            var result = log.IsValidLogFileName("short.ext");
+
+            Assert.True(result);
+        }
+
+        [Test]
+        public void Analyze_TooShortFileName_CallWebService()
+        {
+            _fakeExtensionManager.WillBeValid = true;
+
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
+
+            const string tooShortFileName = "abc.ext";
+            log.Analyze(tooShortFileName);
+            StringAssert.Contains("FileName too short: abc.ext", _mockWebService.LastError);
+        }
+
+        [Test]
+        public void Analyze_WebServiceThrows_SendEmail()
+        {
+            _mockWebService.ToTrow = new Exception("fake exception");
+
+            var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
+            var tooShortFileName = "abc.ext";
+
+            log.Analyze(tooShortFileName);
+
+            StringAssert.Contains("someone@somewhere.com", _emailService.To);
+            StringAssert.Contains("fake exception", _emailService.Body);
+            StringAssert.Contains("can't log", _emailService.Subject);
+        }
+
+        private LogAnalyzer MakerAnalyser(IExtensionManager extensionManager,
+            IWebService fakeWebService, IEmailService emailService)
+        {
+            return new LogAnalyzer(extensionManager, fakeWebService, emailService);
         }
     }
 }

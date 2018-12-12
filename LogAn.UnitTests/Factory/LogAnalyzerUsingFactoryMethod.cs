@@ -10,13 +10,14 @@ namespace LogAn.UnitTests.Factory
             return GetManager().IsValid(filename);
         }
 
-        protected virtual IExtensionManager GetManager(){
+        protected virtual IExtensionManager GetManager()
+        {
             return new FileExtensionManager();
         }
 
         [TestFixture]
-        public class LogAnalyzerTests{
-
+        public class LogAnalyzerTests
+        {
             [Test]
             public void OverrideTest()
             {
@@ -32,8 +33,10 @@ namespace LogAn.UnitTests.Factory
             }
         }
 
-        class TestableLogAnalizer:LogAnalyzerUsingFactoryMethod{
+        class TestableLogAnalizer : LogAnalyzerUsingFactoryMethod
+        {
             public IExtensionManager manager;
+
             public TestableLogAnalizer(IExtensionManager mgr)
             {
                 manager = mgr;
