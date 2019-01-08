@@ -90,13 +90,18 @@ namespace LogAn.UnitTests
             _mockWebService.ToTrow = new Exception("fake exception");
 
             var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
-            var tooShortFileName = "abc.ext";
-
+            const string tooShortFileName = "abc.ext";
+            
             log.Analyze(tooShortFileName);
 
-            StringAssert.Contains("someone@somewhere.com", _emailService.To);
-            StringAssert.Contains("fake exception", _emailService.Body);
-            StringAssert.Contains("can't log", _emailService.Subject);
+            var expectedEmail = new EmailInfo()
+            {
+                Body = "fake exception",
+                Subject = "can't log",
+                To = "someone@somewhere.com"
+            };
+
+            Assert.AreEqual(expectedEmail, _emailService.Email);
         }
 
         private LogAnalyzer MakerAnalyser(IExtensionManager extensionManager,

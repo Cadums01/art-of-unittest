@@ -1,16 +1,15 @@
+using System;
+
 namespace LogAn
 {
-    public class FakeEmailService:IEmailService
+    public class FakeEmailService : IEmailService
     {
-        public string To { get; set; }
-        public string Subject { get; set; }
-        public string Body { get; set; }
-        
-        public void SendEmail(string to, string subject, string body)
+
+        public EmailInfo Email = null;
+
+        public void SendEmail(EmailInfo emailInfo)
         {
-            To = to;
-            Subject = subject;
-            Body = body;
+            Email = emailInfo;
         }
     }
 }

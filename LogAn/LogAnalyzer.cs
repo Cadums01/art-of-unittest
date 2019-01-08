@@ -39,7 +39,14 @@ namespace LogAn
                 }
                 catch (Exception ex)
                 {
-                    _emailService.SendEmail("someone@somewhere.com", "can't log", ex.Message);
+                    var email = new EmailInfo()
+                    {
+                        Body = "fake exception",
+                        Subject = "can't log",
+                        To = "someone@somewhere.com"
+                    };
+                    
+                    _emailService.SendEmail(email);
                 }
             }
         }
