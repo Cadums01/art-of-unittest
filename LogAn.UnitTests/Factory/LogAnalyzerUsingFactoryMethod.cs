@@ -21,7 +21,7 @@ namespace LogAn.UnitTests.Factory
             [Test]
             public void OverrideTest()
             {
-                FakeExtensionManager stub = new FakeExtensionManager
+                var stub = new FakeExtensionManager
                 {
                     WillBeValid = true
                 };

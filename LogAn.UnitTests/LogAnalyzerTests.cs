@@ -1,4 +1,5 @@
 using System;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace LogAn.UnitTests
@@ -91,7 +92,7 @@ namespace LogAn.UnitTests
 
             var log = MakerAnalyser(_fakeExtensionManager, _mockWebService, _emailService);
             const string tooShortFileName = "abc.ext";
-            
+
             log.Analyze(tooShortFileName);
 
             var expectedEmail = new EmailInfo()
@@ -103,7 +104,7 @@ namespace LogAn.UnitTests
 
             Assert.AreEqual(expectedEmail, _emailService.Email);
         }
-
+    
         private LogAnalyzer MakerAnalyser(IExtensionManager extensionManager,
             IWebService fakeWebService, IEmailService emailService)
         {
